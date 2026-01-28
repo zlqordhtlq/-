@@ -34,7 +34,7 @@ export const INITIAL_ITEMS: PortfolioItem[] = [
   { id: 'wv3', category: PortfolioCategory.WEB_VARIETY, title: '[정호연] 호여니의 호주머니 - 제작진 편', description: '', media: [{ url: 'https://youtu.be/ehBpOmsLI2Q', type: 'youtube' }] },
   { id: 'wv4', category: PortfolioCategory.WEB_VARIETY, title: '[SK에코플랜트] 지구소녀 - 전자폐기물 편', description: '', media: [{ url: 'https://youtu.be/_xha4aebt0c', type: 'youtube' }] },
   { id: 'wv5', category: PortfolioCategory.WEB_VARIETY, title: '[국가인적자원개발컨소시엄] 미래공작소 - 현대중공업 기술교육원 편', description: '', media: [{ url: 'https://youtu.be/2TF0VK-Ynk4', type: 'youtube' }] },
-  { id: 'wv6', category: PortfolioCategory.WEB_VARIETY, title: '[대성마이맥] 문이 없는 스튜디오 - 이명학 T 편', description: '', media: [{ url: 'https://youtu.be/0YkpyxD4y-M', type: 'youtube' }] },
+  { id: 'wv6', category: PortfolioCategory.WEB_VARIETY, title: '[대성마이맥] 문이 없는 스튜디오 - 이명학 T 편', description: '', media: [{ url: 'https://youtu.be/O9-0NGoPHjo', type: 'youtube' }] },
 
   // 정보영상
   { id: 'iv1', category: PortfolioCategory.INFO_VIDEO, title: '[KOTRA] 디지털 마케팅 플랫폼', description: '', media: [{ url: 'https://youtu.be/U3TRrDpgugI', type: 'youtube' }] },

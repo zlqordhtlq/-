@@ -8,9 +8,9 @@ import { INITIAL_ITEMS, CATEGORY_DETAILS } from './constants';
 import { PortfolioItem, CategoryInfo, PortfolioCategory } from './types';
 
 const App: React.FC = () => {
-  // 스토리지 키를 v3로 변경하여 새로운 카테고리 설명이 강제로 로드되게 함
-  const STORAGE_KEY_ITEMS = 'ahyun_portfolio_items_v3';
-  const STORAGE_KEY_CATS = 'ahyun_portfolio_categories_v3';
+  // 스토리지 키를 v4로 변경하여 업데이트된 영상 데이터가 강제로 로드되게 함
+  const STORAGE_KEY_ITEMS = 'ahyun_portfolio_items_v4';
+  const STORAGE_KEY_CATS = 'ahyun_portfolio_categories_v4';
 
   const [items, setItems] = useState<PortfolioItem[]>(() => {
     try {
