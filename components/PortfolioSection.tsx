@@ -68,7 +68,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       </div>
 
       <div className="relative group/scroll">
-        {/* 네비게이션용 큰 화살표 버튼 */}
+        {/* 네비게이션 컨트롤 */}
         {flattenedMedia.length > 0 && (
           <>
             <button 
@@ -129,7 +129,6 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
                           </div>
                         </div>
                       )}
-                      {/* 클릭 유도 효과 */}
                       <div className="absolute inset-0 bg-[#ffa04d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
@@ -147,7 +146,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
         )}
       </div>
       <style>{`
-        /* 커스텀 스크롤바 바디 */
+        /* 커스텀 스크롤바 바디 스타일 */
         .orange-scrollbar::-webkit-scrollbar {
           height: 4px;
         }
@@ -156,23 +155,25 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           border-radius: 10px;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb {
-          /* 반투명 주황색 적용 (40% 투명도) */
           background: rgba(255, 160, 77, 0.4);
           border-radius: 10px;
           transition: background 0.3s;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 160, 77, 0.75);
+          background: rgba(255, 160, 77, 0.7);
         }
         
-        /* 스크롤바 양 끝의 기본 화살표 버튼 제거 */
+        /* 스크롤바 양 끝의 화살표 버튼 제거 */
         .orange-scrollbar::-webkit-scrollbar-button {
           display: none !important;
           width: 0 !important;
           height: 0 !important;
         }
+        .orange-scrollbar::-webkit-scrollbar-button:start:decrement,
+        .orange-scrollbar::-webkit-scrollbar-button:end:increment {
+          display: none !important;
+        }
 
-        /* Firefox용 설정 */
         .orange-scrollbar {
           scrollbar-width: thin;
           scrollbar-color: rgba(255, 160, 77, 0.4) transparent;
