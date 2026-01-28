@@ -10,34 +10,33 @@ import { PortfolioItem, CategoryInfo, PortfolioCategory } from './types';
 
 const App: React.FC = () => {
   const [items, setItems] = useState<PortfolioItem[]>(() => {
-    const saved = localStorage.getItem('ahyun_portfolio_items');
-    if (saved) {
-      try {
+    try {
+      const saved = localStorage.getItem('ahyun_portfolio_items');
+      if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) {
+        if (Array.isArray(parsed) && parsed.length > 0) {
           return parsed.filter(item => item && item.id && Array.isArray(item.media));
         }
-      } catch (e) {
-        console.error("Data Load Error");
       }
+    } catch (e) {
+      console.error("Data Load Error, falling back to initial data");
     }
     return INITIAL_ITEMS;
   });
 
   const [categories, setCategories] = useState<CategoryInfo[]>(() => {
-    const saved = localStorage.getItem('ahyun_portfolio_categories');
-    if (saved) {
-      try {
+    try {
+      const saved = localStorage.getItem('ahyun_portfolio_categories');
+      if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
-      } catch (e) {}
-    }
+      }
+    } catch (e) {}
     return CATEGORY_DETAILS;
   });
 
   const [isAdminOpen, setIsAdminOpen] = useState(false);
 
-  // 데이터 변경 시 자동 저장
   useEffect(() => {
     try {
       localStorage.setItem('ahyun_portfolio_items', JSON.stringify(items));
@@ -47,7 +46,6 @@ const App: React.FC = () => {
     }
   }, [items, categories]);
 
-  // 업데이트 함수를 함수형(callback) 지원하도록 변경
   const handleUpdateItems = (updater: PortfolioItem[] | ((prev: PortfolioItem[]) => PortfolioItem[])) => {
     setItems(prev => {
       const next = typeof updater === 'function' ? updater(prev) : updater;

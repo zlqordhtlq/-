@@ -34,7 +34,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       id: `${item.id}-${idx}`,
       parentItem: item,
       title: item.title,
-      url: m.url, // Original URL for navigation
+      url: m.url, // Original URL for clicking
       displayUrl: transformGoogleDriveLink(m.url),
       type: m.type
     }))
@@ -68,20 +68,18 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       </div>
 
       <div className="relative group/scroll">
-        {/* 네비게이션 화살표: 영상 넘기기용 큰 버튼 */}
+        {/* 네비게이션 화살표: 클릭으로 부드럽게 이동 */}
         {flattenedMedia.length > 0 && (
           <>
             <button 
               onClick={() => scroll('left')}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/section:opacity-100 transition-all hover:bg-[#ffa04d] hover:border-[#ffa04d] focus:outline-none hidden md:flex"
-              aria-label="좌측으로 이동"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             </button>
             <button 
               onClick={() => scroll('right')}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-white opacity-0 group-hover/section:opacity-100 transition-all hover:bg-[#ffa04d] hover:border-[#ffa04d] focus:outline-none hidden md:flex"
-              aria-label="우측으로 이동"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
             </button>
@@ -131,8 +129,8 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
                           </div>
                         </div>
                       )}
-                      {/* Hover Overlay */}
-                      <div className="absolute inset-0 bg-[#ffa04d]/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                      {/* 카드 클릭 유도 오버레이 */}
+                      <div className="absolute inset-0 bg-[#ffa04d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
                   <div className="mt-4 px-1">
@@ -149,7 +147,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
         )}
       </div>
       <style>{`
-        /* 커스텀 스크롤바 스타일링 */
+        /* 커스텀 스크롤바 */
         .orange-scrollbar::-webkit-scrollbar {
           height: 4px;
         }
@@ -158,27 +156,29 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           border-radius: 10px;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb {
-          /* 반투명한 주황색 */
-          background: rgba(255, 160, 77, 0.4);
+          /* 반투명 주황색 */
+          background: rgba(255, 160, 77, 0.45);
           border-radius: 10px;
-          box-shadow: 0 0 8px rgba(255, 160, 77, 0.1);
+          transition: background 0.3s;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 160, 77, 0.7);
+          background: rgba(255, 160, 77, 0.8);
         }
         
-        /* 스크롤바 양 옆에 있는 기본 화살표 버튼을 완전히 제거 */
-        .orange-scrollbar::-webkit-scrollbar-button:start:decrement,
-        .orange-scrollbar::-webkit-scrollbar-button:end:increment,
+        /* [핵심] 브라우저 기본 스크롤바 화살표 버튼을 강제로 숨김 */
         .orange-scrollbar::-webkit-scrollbar-button {
           display: none !important;
           width: 0 !important;
           height: 0 !important;
         }
+        .orange-scrollbar::-webkit-scrollbar-button:start:decrement,
+        .orange-scrollbar::-webkit-scrollbar-button:end:increment {
+          display: none !important;
+        }
 
         .orange-scrollbar {
           scrollbar-width: thin;
-          scrollbar-color: rgba(255, 160, 77, 0.4) transparent;
+          scrollbar-color: rgba(255, 160, 77, 0.45) transparent;
         }
       `}</style>
     </section>
