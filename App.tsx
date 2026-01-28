@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -9,9 +8,13 @@ import { INITIAL_ITEMS, CATEGORY_DETAILS } from './constants';
 import { PortfolioItem, CategoryInfo, PortfolioCategory } from './types';
 
 const App: React.FC = () => {
+  // 스토리지 키를 v3로 변경하여 새로운 카테고리 설명이 강제로 로드되게 함
+  const STORAGE_KEY_ITEMS = 'ahyun_portfolio_items_v3';
+  const STORAGE_KEY_CATS = 'ahyun_portfolio_categories_v3';
+
   const [items, setItems] = useState<PortfolioItem[]>(() => {
     try {
-      const saved = localStorage.getItem('ahyun_portfolio_items');
+      const saved = localStorage.getItem(STORAGE_KEY_ITEMS);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -26,7 +29,7 @@ const App: React.FC = () => {
 
   const [categories, setCategories] = useState<CategoryInfo[]>(() => {
     try {
-      const saved = localStorage.getItem('ahyun_portfolio_categories');
+      const saved = localStorage.getItem(STORAGE_KEY_CATS);
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) return parsed;
@@ -39,8 +42,8 @@ const App: React.FC = () => {
 
   useEffect(() => {
     try {
-      localStorage.setItem('ahyun_portfolio_items', JSON.stringify(items));
-      localStorage.setItem('ahyun_portfolio_categories', JSON.stringify(categories));
+      localStorage.setItem(STORAGE_KEY_ITEMS, JSON.stringify(items));
+      localStorage.setItem(STORAGE_KEY_CATS, JSON.stringify(categories));
     } catch (e) {
       console.error("Storage Save Error");
     }
