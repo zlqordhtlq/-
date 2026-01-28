@@ -68,7 +68,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       </div>
 
       <div className="relative group/scroll">
-        {/* 네비게이션 화살표: 클릭으로 부드럽게 이동 */}
+        {/* Navigation Arrows: Shown on hover over section */}
         {flattenedMedia.length > 0 && (
           <>
             <button 
@@ -129,7 +129,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
                           </div>
                         </div>
                       )}
-                      {/* 카드 클릭 유도 오버레이 */}
+                      {/* Clickable area indicator */}
                       <div className="absolute inset-0 bg-[#ffa04d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
@@ -147,7 +147,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
         )}
       </div>
       <style>{`
-        /* 커스텀 스크롤바 */
+        /* Custom Scrollbar Styling */
         .orange-scrollbar::-webkit-scrollbar {
           height: 4px;
         }
@@ -156,16 +156,16 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           border-radius: 10px;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb {
-          /* 반투명 주황색 */
-          background: rgba(255, 160, 77, 0.45);
+          /* Semi-transparent Orange */
+          background: rgba(255, 160, 77, 0.4);
           border-radius: 10px;
-          transition: background 0.3s;
+          transition: background 0.3s ease;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 160, 77, 0.8);
+          background: rgba(255, 160, 77, 0.7);
         }
         
-        /* [핵심] 브라우저 기본 스크롤바 화살표 버튼을 강제로 숨김 */
+        /* HIDDING BROWSER SCROLLBAR BUTTONS (ARROWS) */
         .orange-scrollbar::-webkit-scrollbar-button {
           display: none !important;
           width: 0 !important;
@@ -176,9 +176,10 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           display: none !important;
         }
 
+        /* Firefox Compatibility */
         .orange-scrollbar {
           scrollbar-width: thin;
-          scrollbar-color: rgba(255, 160, 77, 0.45) transparent;
+          scrollbar-color: rgba(255, 160, 77, 0.4) transparent;
         }
       `}</style>
     </section>
