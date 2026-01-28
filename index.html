@@ -24,7 +24,7 @@
         #root {
             min-height: 100vh;
         }
-        /* 전역 스크롤바 화살표 제거 (기본 버튼 숨김) */
+        /* 전역 스크롤바 화살표 제거 */
         ::-webkit-scrollbar-button {
             display: none !important;
             width: 0 !important;
@@ -46,5 +46,7 @@
 </head>
 <body>
     <div id="root"></div>
+    <!-- 앱 구동을 위한 엔트리 포인트 스크립트 로드 -->
+    <script type="module" src="index.tsx"></script>
 </body>
 </html>
