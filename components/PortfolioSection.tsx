@@ -129,7 +129,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
                           </div>
                         </div>
                       )}
-                      {/* 클릭 유도 오버레이 */}
+                      {/* 클릭 유도 효과 */}
                       <div className="absolute inset-0 bg-[#ffa04d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
@@ -156,22 +156,23 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           border-radius: 10px;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb {
-          /* 반투명 주황색 적용 */
+          /* 반투명 주황색 적용 (40% 투명도) */
           background: rgba(255, 160, 77, 0.4);
           border-radius: 10px;
           transition: background 0.3s;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 160, 77, 0.7);
+          background: rgba(255, 160, 77, 0.75);
         }
         
-        /* 스크롤바의 작은 화살표 버튼(증감 버튼)을 완전히 숨김 */
+        /* 스크롤바 양 끝의 기본 화살표 버튼 제거 */
         .orange-scrollbar::-webkit-scrollbar-button {
           display: none !important;
           width: 0 !important;
           height: 0 !important;
         }
 
+        /* Firefox용 설정 */
         .orange-scrollbar {
           scrollbar-width: thin;
           scrollbar-color: rgba(255, 160, 77, 0.4) transparent;
