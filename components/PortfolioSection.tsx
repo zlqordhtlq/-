@@ -34,7 +34,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       id: `${item.id}-${idx}`,
       parentItem: item,
       title: item.title,
-      url: m.url, // Original URL for clicking
+      url: m.url,
       displayUrl: transformGoogleDriveLink(m.url),
       type: m.type
     }))
@@ -68,7 +68,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
       </div>
 
       <div className="relative group/scroll">
-        {/* Navigation Arrows: Shown on hover over section */}
+        {/* 네비게이션 화살표 */}
         {flattenedMedia.length > 0 && (
           <>
             <button 
@@ -129,7 +129,6 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
                           </div>
                         </div>
                       )}
-                      {/* Clickable area indicator */}
                       <div className="absolute inset-0 bg-[#ffa04d]/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     </div>
                   </div>
@@ -147,7 +146,7 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
         )}
       </div>
       <style>{`
-        /* Custom Scrollbar Styling */
+        /* 커스텀 스크롤바 */
         .orange-scrollbar::-webkit-scrollbar {
           height: 4px;
         }
@@ -156,27 +155,22 @@ const PortfolioSection: React.FC<PortfolioSectionProps> = ({ categoryInfo, items
           border-radius: 10px;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb {
-          /* Semi-transparent Orange */
+          /* 40% 투명도의 주황색 */
           background: rgba(255, 160, 77, 0.4);
           border-radius: 10px;
-          transition: background 0.3s ease;
+          transition: background 0.3s;
         }
         .orange-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 160, 77, 0.7);
+          background: rgba(255, 160, 77, 0.75);
         }
         
-        /* HIDDING BROWSER SCROLLBAR BUTTONS (ARROWS) */
+        /* 기본 화살표 버튼 제거 */
         .orange-scrollbar::-webkit-scrollbar-button {
           display: none !important;
           width: 0 !important;
           height: 0 !important;
         }
-        .orange-scrollbar::-webkit-scrollbar-button:start:decrement,
-        .orange-scrollbar::-webkit-scrollbar-button:end:increment {
-          display: none !important;
-        }
 
-        /* Firefox Compatibility */
         .orange-scrollbar {
           scrollbar-width: thin;
           scrollbar-color: rgba(255, 160, 77, 0.4) transparent;
